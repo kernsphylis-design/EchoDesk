@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线客服</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="chat-container">
+        <div id="top-banner" class="top-banner hidden">
+            <div class="top-banner-content">
+                <span>新手指南：如何使用 Telegram 机器人与网页客服联动</span>
+                <a class="banner-link" href="guide.html" title="查看 Telegram 使用教程">立即查看</a>
+            </div>
+            <button id="banner-close" class="banner-close" aria-label="关闭">×</button>
+        </div>
+   
+        <div class="app-body">
+            <aside class="sidebar">
+                <div id="agent-selection">
+                    <div class="sidebar-header">
+                        <h2>请选择客服</h2>
+                        <button id="refresh-agents" class="refresh-btn" title="刷新">刷新</button>
+                    </div>
+                    <div id="agent-grid" class="agent-grid">
+                        <!-- agent cards injected here -->
+                    </div>
+                </div>
+            </aside>
+            <main class="chat-pane">
+                <div id="chat-window" class="hidden">
+                    <div id="chat-header" class="chat-header hidden">
+                        <div class="agent-avatar" id="agent-avatar">K</div>
+                        <div class="agent-title">
+                            <div class="agent-name" id="agent-name">客服</div>
+                            <div class="agent-status" id="agent-status" title="可用"></div>
+                        </div>
+                    </div>
+                    <div id="chat-info" class="hidden"></div>
+                    <div id="messages"></div>
+                    <form id="form" class="hidden">
+                        <input id="input" autocomplete="off" placeholder="输入消息..." />
+                        <button>发送</button>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>

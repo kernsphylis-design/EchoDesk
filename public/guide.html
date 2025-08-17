@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telegram 使用教程 - 在线客服</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* 全局重置 */
+    html, body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #fff;
+    }
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+  
+    .guide-container {
+      max-width: 920px;
+      margin: 0 auto;         /* 顶部不要留 32px 了，直接紧贴 */
+      padding: 24px 16px;     /* 用 padding 替代外边距 */
+    }
+    .guide-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .guide-title { font-size: 20px; font-weight: 700; }
+    .guide-section { margin: 18px 0; }
+    .guide-section h2 { font-size: 16px; margin: 8px 0; }
+    .code {
+      font-family: Consolas, monospace;
+      background:#f5f5f7;
+      padding: 8px 10px;
+      border-radius: 6px;
+      display:inline-block;
+    }
+    .block { display:block; }
+    .muted { color: #666; }
+    .back-link { text-decoration: none; font-size: 14px; }
+    .list { margin: 8px 0 8px 20px; }
+    .tip {
+      background: #eef9f0;
+      border-left: 3px solid #42b883;
+      padding: 10px 12px;
+      border-radius: 4px;
+    }
+    .warn {
+      background: #fff7e6;
+      border-left: 3px solid #faad14;
+      padding: 10px 12px;
+      border-radius: 4px;
+    }
+    .danger {
+      background: #fff1f0;
+      border-left: 3px solid #ff4d4f;
+      padding: 10px 12px;
+      border-radius: 4px;
+    }
+    a { color: #1677ff; }
+  </style>
+  
+  <style>
+    .guide-container { max-width: 920px; margin: 32px auto; padding: 0 16px; }
+    .guide-header { display:flex; align-items:center; justify-content:space-between; margin-bottom: 16px; }
+    .guide-title { font-size: 20px; font-weight: 700; }
+    .guide-section { margin: 18px 0; }
+    .guide-section h2 { font-size: 16px; margin: 8px 0; }
+    .code { font-family: Consolas, monospace; background:#f5f5f7; padding: 8px 10px; border-radius: 6px; display:inline-block; }
+    .block { display:block; }
+    .muted { color: #666; }
+    .back-link { text-decoration: none; font-size: 14px; }
+    .list { margin: 8px 0 8px 20px; }
+    .tip { background: #eef9f0; border-left: 3px solid #42b883; padding: 10px 12px; border-radius: 4px; }
+    .warn { background: #fff7e6; border-left: 3px solid #faad14; padding: 10px 12px; border-radius: 4px; }
+    .danger { background: #fff1f0; border-left: 3px solid #ff4d4f; padding: 10px 12px; border-radius: 4px; }
+    a { color: #1677ff; }
+  </style>
+</head>
+<body>
+  <div class="guide-container">
+    <div class="guide-header">
+      <div class="guide-title">Telegram 使用教程</div>
+      <a class="back-link" href="index.html">返回客服页面</a>
+    </div>
+
+    <div class="guide-section">
+      <h2>1. 创建 Telegram 机器人</h2>
+      <ol class="list">
+        <li>在 Telegram 搜索 <b>@BotFather</b> 并开始对话。</li>
+        <li>发送 <span class="code">/newbot</span>，按提示设置机器人名称和用户名（以 <b>bot</b> 结尾）。</li>
+        <li>复制 BotFather 返回的 <b>Bot Token</b>（形如 <span class="code">123456:ABC-DEF...</span>）。</li>
+      </ol>
+    </div>
+
+    <div class="guide-section">
+      <h2>2. 配置本项目环境变量</h2>
+      <p>在项目根目录复制 <span class="code">.env.example</span> 为 <span class="code">.env</span>，并填写：</p>
+      <pre class="code block">TELEGRAM_BOT_TOKEN=替换为你的Bot Token</pre>
+      <p class="muted">保存后重启服务。</p>
+    </div>
+
+    <div class="guide-section">
+      <h2>3. 绑定客服（支持私聊或群组）</h2>
+      <p>机器人启动后，在 Telegram 中对你的机器人发送以下命令：</p>
+      <ul class="list">
+        <li><span class="code">/addsupport &lt;昵称&gt; [@username]</span> 添加一个客服，例如：<span class="code">/addsupport 小李 @xiaoli</span></li>
+        <li><span class="code">/listsupport</span> 查看已绑定的客服列表</li>
+        <li><span class="code">/removesupport [@username]</span> 移除客服</li>
+        <li><span class="code">/help</span> 查看所有命令帮助</li>
+      </ul>
+      <div class="tip">若在群组使用，请把机器人拉进群并赋予发言权限，然后在群里执行上述命令。</div>
+    </div>
+
+    <div class="guide-section">
+      <h2>4. 网页端与客服对话</h2>
+      <ol class="list">
+        <li>打开 <a href="index.html">网页端</a>，选择一个客服，开始对话。</li>
+        <li>网页消息会转发到已绑定的客服（或群）。</li>
+        <li>客服在 Telegram 直接回复，系统会把消息路由回该用户的网页会话。</li>
+      </ol>
+      <div class="tip">系统支持每个客服独立的会话历史，切换客服时历史不会混淆。</div>
+    </div>
+
+    <div class="guide-section">
+      <h2>5. 常见问题</h2>
+      <ul class="list">
+        <li><b>看不到机器人消息？</b> 确认 <span class="code">TELEGRAM_BOT_TOKEN</span> 正确且服务已重启。</li>
+        <li><b>回复无法路由回网页？</b> 请直接在机器人推送的同一条消息下回复，或保持消息尾部的 <span class="code">(user:&lt;id&gt;)</span> 标记。</li>
+        <li><b>消息太长？</b> 系统会自动截断并附带最近对话摘要。</li>
+      </ul>
+    </div>
+
+    <div class="guide-section">
+      <h2>6. 进阶（可选）</h2>
+      <ul class="list">
+        <li>将历史与离线队列持久化（如接入 Redis）。</li>
+        <li>自定义转发模板、历史条数与截断长度。</li>
+        <li>为网页添加离线队列/送达状态提示。</li>
+      </ul>
+    </div>
+
+    <div class="guide-section muted">
+      <p>最后更新：2025-08-17</p>
+    </div>
+  </div>
+</body>
+</html>

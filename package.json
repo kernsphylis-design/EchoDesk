@@ -1,0 +1,15 @@
+{
+  "name": "echodesk",
+  "version": "1.0.0",
+  "description": "Telegram Customer Service System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-telegram-bot-api": "^0.54.0",
+    "socket.io": "^4.1.2",
+    "dotenv": "^16.3.1"
+  }
+}
