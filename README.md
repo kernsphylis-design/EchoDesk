@@ -48,10 +48,27 @@ npm start
   - `/removesupport [me|<tg_id|@username>]`
 > 注：使用 `@username` 注册/移除时，该用户需要先至少与机器人聊过一次。
 
+## 系统展示
+
+- 首页与客服选择
+
+![首页与客服选择](doc/屏幕截图 2025-08-18 032055.png)
+
+_访客进入后选择在线客服开始会话。_
+
+- 实时聊天与 Telegram 联动
+
+![实时聊天与 Telegram 联动](doc/屏幕截图 2025-08-18 032150.png)
+
+_网页与 Telegram 机器人双向同步，客服在 Telegram 直接回复即可回传到网页。_
+
 ## 网页端
 - 选择一个在线客服后开始对话
 - 收到客服消息会自动显示并播放提示音
 - 前端页面与使用指南位于 `public/`（`index.html`、`client.js`、`style.css`、`guide.html`）
+
+## 联系开发者
+- Telegram：[@abcz110](https://t.me/abcz110)
 
 ## 项目结构
 - `server.js` — 服务端与 Telegram 机器人逻辑
